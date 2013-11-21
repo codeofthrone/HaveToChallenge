@@ -1,0 +1,5 @@
+#!/bin/sh
+
+Owen_Linux_IP=$(ifconfig | grep 'inet' | grep -v ' 127.0.0.1' | cut -d: -f2  | awk '{print $2}')
+date=$(date +%Y%m%d)
+echo "IP : $Owen_Linux_IP" | mail -s "$date Owen Fedora 19 booting report" me@htc.com
