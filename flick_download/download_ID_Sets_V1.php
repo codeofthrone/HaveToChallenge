@@ -79,6 +79,7 @@ function UserID_sets_List($user_id){
         print ($d['photoset'][$set]['id'] ."\n" ) ;
         $dir_name =  $d['photoset'][$set]['title'] ;
         $dir_name = str_replace(" ","\ ",$dir_name);
+        $dir_name = str_replace("|","-",$dir_name);
         $dir_name = str_replace("(","-",$dir_name);
         $dir_name = str_replace(")","-",$dir_name);
         $dir_name = str_replace("&","-",$dir_name);
