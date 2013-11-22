@@ -30,3 +30,11 @@
  set shiftwidth=4
  set expandtab
  retab
+
+ syntax on
+ set foldmarker={{{,}}}
+ set foldmethod=marker
+ set foldlevel=1 " 預設全部關閉
+ let php_folding = 3 " 這個很重要
+ set foldnestmax=3 
+
