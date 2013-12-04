@@ -76,12 +76,15 @@ function UserID_sets_List($user_id){
     $total_sets = $d['total'] ;
     for( $set = 0 ; $total_sets > $set ; $set++ ){
         print ("Set : $set ");
-        print ($d['photoset'][$set]['id'] ."\n" ) ;
+        print ($d['photoset'][$set]['id'] ) ;
         $dir_name =  $d['photoset'][$set]['title'] ;
+        print ($dir_name ."\n" ) ;
         $dir_name = str_replace(" ","\ ",$dir_name);
-        $dir_name = str_replace("|","-",$dir_name);
+        $dir_name = str_replace("'","\'",$dir_name);
+        $dir_name = str_replace("/","\/",$dir_name);
         $dir_name = str_replace("(","-",$dir_name);
         $dir_name = str_replace(")","-",$dir_name);
+        $dir_name = str_replace("|","-",$dir_name);
         $dir_name = str_replace("&","-",$dir_name);
         $dir_name = trim($dir_name);
         system( "mkdir -p $user_id/$dir_name");
