@@ -1,0 +1,117 @@
+<h1>List View</h1>
+
+<form action="/ListView" method="POST">
+<a name="Top">
+<a href="#Phone">Jump to Phone</a>
+<a href="#Sim">Jump to Sim</a>
+<a href="#Account">Jump to Account</a>
+
+
+<a name="Phone"></a>
+<br>Phone<br>
+<table border="3">
+<tr>
+<td>Vendor</td>
+<td>Product</td>
+<td>Model</td>
+<td>OS</td>
+<td>Version</td>
+<td>SDCardSize</td>
+<td>SIMCardSize</td>
+<td>CPU</td>
+<td>GPU</td>
+<td>RAM</td>
+<td>Storage</td>
+<td>DataPlan</td>
+<td>Wifi</td>
+<td>BT</td>
+<td>NFC</td>
+<td>ScreenSize</td>
+<td>FrontCamera</td>
+<td>RearCamera</td>
+<td>FlashLight</td>
+<td>DPI</td>
+<td>Resolution</td>
+<td>Gyroscope</td>
+<td>G-sensor</td>
+<td>Barometer</td>
+<td>WifiCharge</td>
+<td>Comment</td>
+</tr>
+<tr>
+<td>{{.Vendor}}</td>
+<td>{{.Product}}</td>
+<td>{{.Model}}</td>
+<td>{{.OS}}</td>
+<td>{{.Version}}</td>
+<td>{{.SDCardSize}}</td>
+<td>{{.SIMCardSize}}</td>
+<td>{{.CPU}}</td>
+<td>{{.GPU}}</td>
+<td>{{.RAM}}</td>
+<td>{{.Storage}}</td>
+<td>{{.DataPlan}}</td>
+<td>{{.Wifi}}</td>
+<td>{{.BT}}</td>
+<td>{{.NFC}}</td>
+<td>{{.ScreenSize}}</td>
+<td>{{.FrontCamera}}</td>
+<td>{{.RearCamera}}</td>
+<td>{{.FlashLight}}</td>
+<td>{{.DPI}}</td>
+<td>{{.Resolution}}</td>
+<td>{{.Gyroscope}}</td>
+<td>{{.G-sensor}}</td>
+<td>{{.Barometer}}</td>
+<td>{{.WifiCharge}}</td>
+<td>{{.Comment}}</td>
+</tr>
+</table>
+
+<a href="#Top">Back to Top</a>
+<a name="Sim"></a>
+<br>SIM<br>
+<table border="3">
+<tr>
+<td>Country</td>
+<td>Telecom</td>
+<td>Number</td>
+<td>PinCode</td>
+<td>SIMCardSize</td>
+<td>Comment</td>
+</tr>
+<tr>
+<td>{{.Country}}</td>
+<td>{{.Telecom}}</td>
+<td>{{.Number}}</td>
+<td>{{.PinCode}}</td>
+<td>{{.SIMCardSize}}</td>
+<td>{{.Comment}}</td>
+</tr>
+</table>
+
+
+<a href="#Top">Back to Top</a>
+<a name="Sim"></a>
+<br>Account<br>
+<table border="3">
+<tr>
+<td>Company</td>
+<td>Service</td>
+<td>Register</td>
+<td>Account</td>
+<td>Password</td>
+<td>Accessory</td>
+<td>Comment</td>
+</tr>
+<tr>
+<td>{{.Company}}</td>
+<td>{{.Service}}</td>
+<td>{{.Register}}</td>
+<td>{{.Account}}</td>
+<td>{{.Password}}</td>
+<td>{{.Accessory}}</td>
+<td>{{.Comment}}</td>
+</tr>
+</table>
+</form>
