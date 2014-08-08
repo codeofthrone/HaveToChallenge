@@ -1,4 +1,4 @@
-<h1>New</h1>
+<h1>New{{.}}</h1>
 <head>
 	<style type="text/css">
 		#ie-test { position: relative; width: 100%; }
@@ -20,7 +20,7 @@
     <![endif]-->
 </head>
 
-<form action="/Add" method="POST">
+<form action="/New" method="post">
 <div id="ie-test">
 
     <ul id="boxLinks" class="group">
@@ -33,70 +33,68 @@
     	<div id="box1" class="box">
     	<table>
     	<tr>
-<td>Vendor : </td><td><input type="text" name="{{.Vendor}}"></td>
+		<td>Vendor : </td><td><input type="text" name="Vendor"></td>
 		</tr>
 		<tr>
 		<td>
-		Product : </td><td><input type="text" name="{{.Product}}"></td></tr><tr><td>
-		Model : </td><td><input type="text" name="{{.Model}}"></td></tr><tr><td>
-		OS : </td><td><input type="text" name="{{.OS}}"></td></tr><tr><td>
-		Version : </td><td><input type="text" name="{{.Version}}"></td></tr><tr><td>
-		SDCardSize : </td><td><input type="text" name="{{.SDCardSize}}"></td></tr><tr><td>
-		SIMCardSize : </td><td><input type="text" name="{{.SIMCardSize}}"></td></tr><tr><td>
-		CPU : </td><td><input type="text" name="{{.CPU}}"></td></tr><tr><td>
-		GPU : </td><td><input type="text" name="{{.GPU}}"></td></tr><tr><td>
-		RAM : </td><td><input type="text" name="{{.RAM}}"></td></tr><tr><td>
-		Storage : </td><td><input type="text" name="{{.StorageSize}}"></td></tr><tr><td>
-		Wifi : </td><td><input type="text" name="{{.Wifi}}"></td></tr><tr><td>
-		BlueTooth : </td><td><input type="text" name="{{.BlueTooth}}"></td></tr><tr><td>
-		NFC : </td><td><input type="text" name="{{.NFC}}"></td></tr><tr><td>
-		ScreenSize : </td><td><input type="text" name="{{.ScreenSize}}"></td></tr><tr><td>
-		FronTCamera : </td><td><input type="text" name="{{.FrontCamera}}"></td></tr><tr><td>
-		RearCamera : </td><td><input type="text" name="{{.RearCamera}}"></td></tr><tr><td>
-		FlashLight : </td><td><input type="text" name="{{.FlashLight}}"></td></tr><tr><td>
-		DPI : </td><td><input type="text" name="{{.DPI}}"></td></tr><tr><td>
-		Resolution : </td><td><input type="text" name="{{.Resolution}}"></td></tr><tr><td>
-		Gyroscope : </td><td><input type="text" name="{{.Gyroscope}}"></td></tr><tr><td>
-		G-sensor : </td><td><input type="text" name="{{.G-sensor}}"></td></tr><tr><td>
-		Barometer : </td><td><input type="text" name="{{.Barometer}}"></td></tr><tr><td>
-		WifiCharge : </td><td><input type="text" name="{{.WifiCharge}}"></td></tr><tr><td>
-		Comment : </td><td><input type="text" name="{{.Comment}}"></td></tr>
+		Product : </td><td><input type="text" name="Product"></td></tr><tr><td>
+		Model : </td><td><input type="text" name="Model"></td></tr><tr><td>
+		OS : </td><td><input type="text" name="OS"></td></tr><tr><td>
+		Version : </td><td><input type="text" name="Version"></td></tr><tr><td>
+		SDCardSize : </td><td><input type="text" name="SDCardSize"></td></tr><tr><td>
+		SIMCardSize : </td><td><input type="text" name="SIMCardSize"></td></tr><tr><td>
+		CPU : </td><td><input type="text" name="CPU"></td></tr><tr><td>
+		GPU : </td><td><input type="text" name="GPU"></td></tr><tr><td>
+		RAM : </td><td><input type="text" name="RAM"></td></tr><tr><td>
+		Storage : </td><td><input type="text" name="StorageSize"></td></tr><tr><td>
+		Wifi : </td><td><input type="text" name="Wifi"></td></tr><tr><td>
+		BlueTooth : </td><td><input type="text" name="BlueTooth"></td></tr><tr><td>
+		NFC : </td><td><input type="text" name="NFC"></td></tr><tr><td>
+		ScreenSize : </td><td><input type="text" name="ScreenSize"></td></tr><tr><td>
+		FronTCamera : </td><td><input type="text" name="FrontCamera"></td></tr><tr><td>
+		RearCamera : </td><td><input type="text" name="RearCamera"></td></tr><tr><td>
+		FlashLight : </td><td><input type="text" name="FlashLight"></td></tr><tr><td>
+		DPI : </td><td><input type="text" name="DPI"></td></tr><tr><td>
+		Resolution : </td><td><input type="text" name="Resolution"></td></tr><tr><td>
+		Gyroscope : </td><td><input type="text" name="Gyroscope"></td></tr><tr><td>
+		G-sensor : </td><td><input type="text" name="Gsensor"></td></tr><tr><td>
+		Barometer : </td><td><input type="text" name="Barometer"></td></tr><tr><td>
+		WifiCharge : </td><td><input type="text" name="WifiCharge"></td></tr><tr><td>
+		Comment : </td><td><input type="text" name="Comment"></td></tr>
 			
 			</table>
-			<input type="submit" value="Save">
            <!--[if IE]><b>.</b><![endif]-->
          </div>
     	<div id="box2" class="box">
     	<table>
     	<tr><td>
-		Country : </td><td><input type="text" name="{{.Country}}"></td></tr><tr><td>
-		Telecom : </td><td><input type="text" name="{{.Telecom}}"></td></tr><tr><td>
-		Number : </td><td><input type="text" name="{{.Number}}"></td></tr><tr><td>
-		PinCode : </td><td><input type="text" name="{{.PinCode}}"></td></tr><tr><td>
-		SIMCardSize : </td><td><input type="text" name="{{.SIMCardSize}}"></td></tr><tr><td>
-		Comment : </td><td><input type="text" name="{{.Comment}}"></td></tr><tr><td>
+		Country : </td><td><input type="text" name="Country"></td></tr><tr><td>
+		Telecom : </td><td><input type="text" name="Telecom"></td></tr><tr><td>
+		Number : </td><td><input type="text" name="Number"></td></tr><tr><td>
+		PinCode : </td><td><input type="text" name="PinCode"></td></tr><tr><td>
+		SIMCardSize : </td><td><input type="text" name="SIMCardSize"></td></tr><tr><td>
+		Comment : </td><td><input type="text" name="Comment"></td></tr><tr><td>
 
 		</table>
-		<input type="submit" value="Save">
     	<!--[if IE]><b>.</b><![endif]-->
     	</div>
     	<div id="box3" class="box">
     	<table>
     	<tr><td>
-		Company : </td><td><input type="text" name="{{.Company}}"></td></tr><tr><td>
-		Service : </td><td><input type="text" name="{{.Service}}"></td></tr><tr><td>
-		Register : </td><td><input type="text" name="{{.Register}}"></td></tr><tr><td>
-		Account : </td><td><input type="text" name="{{.Account}}"></td></tr><tr><td>
-		Password : </td><td><input type="text" name="{{.Password}}"></td></tr><tr><td>
-		Accessory : </td><td><input type="text" name="{{.Accessory}}"></td></tr><tr><td>
-		Comment : </td><td><input type="text" name="{{.Comment}}"></td></tr><tr><td>
+		Company : </td><td><input type="text" name="Company"></td></tr><tr><td>
+		Service : </td><td><input type="text" name="Service"></td></tr><tr><td>
+		Register : </td><td><input type="text" name="Register"></td></tr><tr><td>
+		Account : </td><td><input type="text" name="Account"></td></tr><tr><td>
+		Password : </td><td><input type="text" name="Password"></td></tr><tr><td>
+		Accessory : </td><td><input type="text" name="Accessory"></td></tr><tr><td>
+		Comment : </td><td><input type="text" name="Comment"></td></tr><tr><td>
 		</table>
-		<input type="submit" value="Save">
     	<!--[if IE]><b>.</b><![endif]-->
     	</div>
     </div>
 
 </div>
+			<input type="submit" value="Save">
 
 
 </form>
