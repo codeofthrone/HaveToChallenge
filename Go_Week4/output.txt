@@ -1,0 +1,9 @@
+homework
+homework\folder1
+homework\folder1\1.txt
+homework\folder1\2.txt
+homework\folder1\3.txt
+homework\folder2
+homework\folder2\4.txt
+homework\folder2\5.txt
+homework\folder2\6.txt
