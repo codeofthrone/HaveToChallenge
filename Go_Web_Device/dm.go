@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"net/url"
 
 	"database/sql"
 	_ "github.com/mattn/go-sqlite3"
@@ -41,6 +42,10 @@ type New struct {
 	Barometer   string
 	WifiCharge  string
 	Comment     string
+}
+
+func EditHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(“got:”, r.URL.Query())
 }
 
 func NewHandler(w http.ResponseWriter, r *http.Request) {
@@ -81,13 +86,11 @@ func NewHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		db.Close()
 
-		fmt.Println("empty")
 		p := &Page{Key: "empty"}
 		t, _ := template.ParseFiles("New.html")
 		t.Execute(w, p)
 
 	} else {
-		fmt.Println("not empty")
 		p := &New{Vendor: vendor}
 		t, _ := template.ParseFiles("New.html")
 		t.Execute(w, p)
@@ -97,7 +100,8 @@ func NewHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/New/", NewHandler)
-	err := http.ListenAndServe(":22629", nil)
+	http.HandleFunc("/Edit/", EditHandler)
+	err := http.ListenAndServe(":22630", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
