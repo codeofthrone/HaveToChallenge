@@ -26,21 +26,21 @@ function photo_list ($tags , $page, $total_download){
         if(!empty( $d['photo'][$index]['url_o'] )){
             print_r( $d['photo'][$index]['url_o'] ."\n");
             $downfile =  $d['photo'][$index]['url_o'] ;
-        #    system( "wget $downfile -P $dir");
+            system( "wget $downfile -P $dir");
         }elseif(!empty( $d['photo'][$index]['url_l'] )){
             print_r( $d['photo'][$index]['url_l'] ."\n");
             $downfile =  $d['photo'][$index]['url_l'] ;
             $path = `pwd`;
-        #    system( "wget  $downfile -P $dir");
+            system( "wget  $downfile -P $dir");
         #system( "wget $downfile ");
         }elseif(!empty( $d['photo'][$index]['url_b'] )){
             print_r( $d['photo'][$index]['url_b'] ."\n");
             $downfile =  $d['photo'][$index]['url_b'] ;
-        #    system( "wget $downfile ");
+            system( "wget $downfile ");
         }elseif(!empty( $d['photo'][$index]['url_c'] )){
             print_r( $d['photo'][$index]['url_c'] ."\n");
             $downfile =  $d['photo'][$index]['url_c'] ;
-        #    system( "wget $downfile ");
+            system( "wget $downfile ");
 
         }else{
             print ("orignal and large size is not available \n");
