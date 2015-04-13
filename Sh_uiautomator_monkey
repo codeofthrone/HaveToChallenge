@@ -1,0 +1,253 @@
+#!/bin/bash
+Version=0.0.1
+
+function show_help() {
+    echo "Usage : ./run_test.sh -[d|h|v|p|j|t|l|s] argv1 --[help|verbose|apk|jar|path|log|step] argv2 ..."
+    echo "
+Usage: run_test.sh [POSIX or GNU style options] -f progfile [--] file ...
+    Usage: awk [POSIX or GNU style options] [--] 'program' file ...
+POSIX options:          GNU long options: (standard)
+    -p apk_file             --apk=apk_file
+    -j JAR_name             --jar=AVD_name
+    -t JAR_Path             --path=AVD_name
+    -l Log_folder_name      --log=AVD_name
+    -s Monkey_Step          --step=AVD_name
+Short options:          GNU long options: (extensions)
+    -d                      --debug
+    -h                      --help
+    -v                      --version
+
+    Examples:
+    ./run_test.sh -p apk_file -d AVD_name
+"
+
+}
+
+function show_Version(){
+	echo "Version="$Version
+}
+
+function GetDeviceList(){
+	DeviceArray=$(adb devices| grep "device$" | cut -f 1 | tr '\n' ' '| sed 's/ $//g')
+	echo $DeviceArray
+	if [[ $DeviceArray == *" "* ]]
+		then
+		echo "More than one device"
+		DeviceSN=(${DeviceArray// / })
+
+	    # use for loop read all nameservers
+	    for (( i=0; i<${#DeviceSN[@]}; i++ ));
+	    do
+	    	echo "***"${DeviceSN[i]}"***"
+	    done
+	    x=${DeviceSN[$SN]}
+		ADB=$(which adb )" -s "$x
+
+	else
+		DeviceSN=(${DeviceArray// / })
+		x=${DeviceSN[i]}
+		echo "***"$x"***"
+		ADB=$(which adb )" -s "$x
+	fi
+}
+
+function InstallAPK(){
+	APK=$1
+	Cmd=$ADB" install "$APK
+	if [[ $verbose -eq 1 ]]; then
+		echo "Cmd="$Cmd
+	fi
+	$Cmd
+}
+
+function ClearData(){
+	local LogFolder=$1
+	Cmd=$ADB" shell rm -r /sdcard/"$LogFolder
+	if [[ $verbose -eq 1 ]]; then
+		echo "Cmd="$Cmd
+	fi
+	$Cmd
+}
+
+function CleanLogcat(){
+	Cmd=$ADB" logcat -c"
+	if [[ $verbose -eq 1 ]]; then
+		echo "Cmd="$Cmd
+	fi
+	$Cmd
+}
+
+function PushMonkeyJAR(){
+	local MonkeyPath=$1
+	local MonkeyJAR=$2
+	Cmd=$ADB" push "$MonkeyPath$MonkeyJAR" /data/local/tmp"
+	if [[ $verbose -eq 1 ]]; then
+		echo "Cmd="$Cmd
+	fi
+	$Cmd
+}
+
+function CreateLogFolder(){
+	LogFolder=$1
+	Cmd1=$ADB" shell mkdir sdcard/"$LogFolder"/"
+	Cmd2="mkdir "$LogFolder"/"
+	if [[ $verbose -eq 1 ]]; then
+		echo "Cmd1="$Cmd1
+		echo "Cmd2="$Cmd2
+	fi
+	$Cmd1
+	$Cmd2
+}
+
+function RunMonkey(){
+	local STEP=$1
+	local MonkeyJAR=$2
+	local PackageName=$3
+	Cmd1=$ADB" logcat -v threadtime > Strolling_Test/adblog_"$STEP".log &"
+	Cmd2=$ADB" shell uiautomator runtest "$MonkeyJAR" -c com.strolling.multilang.MonkeyTest -e stringKey "$STEP
+	Cmd3=$ADB" shell monkey -p "$PackageName" -v 500 --throttle 500  >  Strolling_Test/monkeylog_"$STEP".log"
+
+	if [[ $verbose -eq 1 ]]; then
+		echo "Cmd1="$Cmd1
+		echo "Cmd2="$Cmd2
+		echo "Cmd3="$Cmd3
+	fi
+
+	#$ADB logcat -v threadtime > Strolling_Test/adblog_$STEP.log &
+	$Cmd1
+	LOGCAT=$!
+	if [[ $verbose -eq 1 ]]; then
+		echo "logcat PID="$LOGCAT
+	fi
+	# $ADB shell uiautomator runtest MonkeyTest.jar -c com.strolling.multilang.MonkeyTest -e stringKey $STEP
+	# $ADB shell monkey -p  com.aiqidi.nemo -v 500 --throttle 500  >  Strolling_Test/monkeylog_$STEP.log
+	$Cmd2
+	$Cmd3
+	kill $LOGCAT
+	if [[ $? == 0 ]]; then
+		echo "FINISH STEP:"$STEP" NORMALLY"
+	else
+		echo "FINISH WITH CRASH"
+	fi
+
+}
+
+function GetTestResult(){
+	local LogFolder=$1
+	if [[ $verbose -eq 1 ]]; then
+		echo "Cmd="$Cmd
+	fi
+	$ADB pull "/sdcard/"$LogFolder"/" $LogFolder"/"
+}
+
+function RunTest(){
+	local STEP=$1
+	local APK=$2
+	local MonkeyPath=$3
+	local MonkeyJAR=$4
+	local LogFolder=$5
+
+	CleanLogcat
+	InstallAPK $APK
+	PushMonkeyJAR $MonkeyPath $MonkeyJAR
+	CreateLogFolder $LogFolder
+	RunMonkey $STEP
+	GetTestResult $LogFolder 
+	ClearData
+}
+
+function main(){
+	GetDeviceList
+	RunTest
+}
+
+while [[ $1 == -* ]]; do
+    case "$1" in
+      -h|--help|-\?) show_help; exit 0;;
+      -d|--debug) verbose=1; shift;;
+      -v|--version) show_Version; exit 0;;
+      -p|--apk) if (($# > 1)); then
+            APK=$2; shift 2
+          else
+            echo "-p option requires an argument" 1>&2
+            exit 1
+          fi ;;
+      --apk=?*)
+            APK=${1#*=} # Delete everything up to "=" and assign the remainder.
+             ;;
+      --apk=)         # Handle the case of an empty --file=
+             echo 'ERROR: Must specify a non-empty "--apk FILE" argument.' >&2
+             exit 1
+             ;;
+      -j|--jar) if (($# > 1)); then
+            MonkeyJAR=$2; shift 2
+          else
+            echo "-j option requires an argument" 1>&2
+            exit 1
+          fi ;;
+      --jar=?*)
+            MonkeyJAR=${1#*=} # Delete everything up to "=" and assign the remainder.
+             ;;
+      --jar=)         # Handle the case of an empty --file=
+             echo 'ERROR: Must specify a non-empty "--jar FILE" argument.' >&2
+             exit 1
+             ;;    
+      -t|--path) if (($# > 1)); then
+            MonkeyPath=$2; shift 2
+          else
+            echo "-p option requires an argument" 1>&2
+            exit 1
+          fi ;;
+      --path=?*)
+            MonkeyPath=${1#*=} # Delete everything up to "=" and assign the remainder.
+             ;;
+      --path=)         # Handle the case of an empty --file=
+             echo 'ERROR: Must specify a non-empty "--path PATH" argument.' >&2
+             exit 1
+             ;;    
+      -l|--log) if (($# > 1)); then
+            LogFolder=$2; shift 2
+          else
+            echo "-l option requires an argument" 1>&2
+            exit 1
+          fi ;;
+      --log=?*)
+            LogFolder=${1#*=} # Delete everything up to "=" and assign the remainder.
+             ;;
+      --log=)         # Handle the case of an empty --file=
+             echo 'ERROR: Must specify a non-empty "--log Log_folder_name" argument.' >&2
+             exit 1
+             ;;          
+      -s|--step) if (($# > 1)); then
+            STEP=$2; shift 2
+          else
+            echo "-s option requires an argument" 1>&2
+            exit 1
+          fi ;;
+      --step=?*)
+            STEP=${1#*=} # Delete everything up to "=" and assign the remainder.
+             ;;
+      --step=)         # Handle the case of an empty --file=
+             echo 'ERROR: Must specify a non-empty "--step NUMBER" argument.' >&2
+             exit 1
+             ;;              
+      --) shift; break;;
+      -*) echo "invalid option: $1" 1>&2; show_help; exit 1;;
+    esac
+done
+
+if [ "$STEP" == "" ]; then
+	echo "You Must input STEP -s [number] "
+elif [ "$APK" == "" ]; then
+	echo "You Must input apk_file -p [apk_file]"
+elif [ "$MonkeyPath" == "" ]; then
+	echo "You MUST input MonkeyPath -t [MonkeyPath]"
+elif [ "$MonkeyJAR" == "" ]; then
+	echo "You MUST input MonkeyJAR -j [MonkeyJAR file]"
+elif [ "$LogFolder" == "" ]; then
+	echo "You MUST input LogFolder -l [Log_folder_name]"
+else
+	main
+fi
+
+
