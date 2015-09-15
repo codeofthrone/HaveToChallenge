@@ -1,0 +1,278 @@
+<resources>
+    <string name="app_name">Umadeit</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="warning">Warning</string>
+    <string name="retry">Retry</string>
+    <string name="next">Next</string>
+    <string name="oops">OOPS!</string>
+    <string name="wait">Please wait&#8230;</string>
+    <string name="setting">Setting</string>
+
+    <!--Active Data-->
+    <string name="steps">STEPS</string>
+    <string name="km">KM</string>
+    <string name="kcal">KCAL.</string>
+    <string name="time">TIME</string>
+    <string name="distance">DISTANCE</string>
+    <string name="calorie">CALORIE</string>
+    <string name="calories">CALORIES</string>
+    <string name="minutes">MINUTES</string>
+
+    <!--Login Screen-->
+    <string name="phone_signin">Phone</string>
+    <string name="facebook_signin">Facebook</string>
+    <string name="gplus_signin">Google+</string>
+    <string name="guest_signin">Guest</string>
+    <string name="singup">Signup</string>
+    <string name="no_connectivity">Unable to connect...\n\nYou need network connection to login.
+        Please turn on Mobile Data or Wi-Fi in SETTINGS.</string>
+    <string name="login_failed">Failed to login, error code is %1s.</string>
+    <!-- This text indicate the Terms & Conditions of our app -->
+    <string name="by_continue">By continuing, you agree to\n{htc_terms} and acknowledge {htc_privacy}.</string>
+    <string name="by_continue_terms_of_condition">HTC\'s Terms &amp; Conditions</string>
+    <string name="by_continue_privacy_policy">HTC\'s Privacy Policy</string>
+
+    <!--Profile Screen-->
+    <string name="profile_title">Profile Settings</string>
+    <string name="profile_height_cm">cm</string>
+    <string name="profile_height_ft">ft</string>
+    <string name="profile_height_inch">in.</string>
+    <string name="profile_weight_kg">kg</string>
+    <string name="profile_weight_lbs">lbs</string>
+    <string name="profile_gender_title">Set your gender</string>
+    <string name="profile_unit_title">Set your unit</string>
+    <string name="profile_height_title">Set your height</string>
+    <string name="profile_weight_title">Set your weight</string>
+
+    <string name="name">Name</string>
+    <string name="gender">Gender</string>
+    <string name="birth">Birthday</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="metric">Metric</string>
+    <string name="imperial">Imperial</string>
+
+    <string name="name_not_filled">Name is not filled</string>
+    <string name="name_not_correct">The format of name is not correct</string>
+    <string name="gender_not_filled">Gender is not selected</string>
+    <string name="birthday_not_filled">Birthday is not filled</string>
+    <string name="height_not_filled">Height is not filled</string>
+    <string name="weight_not_filled">Weight is not filled</string>
+
+    <!--Phone Login-->
+    <string name="phone_number">Phone Number</string>
+    <string name="phone_country">Select Country</string>
+    <string name="phone_number_change">Phone Number Changed</string>
+    <string name="phone_verification_code">Verification Code</string>
+    <string name="phone_number_confirmation_message">We will send a verification code to\nthe following number:\n{phone}</string>
+    <string name="phone_number_confirmation">Phone Number Confirmation</string>
+    <string name="phone_number_not_correct">Phone number is not correct</string>
+    <string name="airplane_mode_is_on_message">Disable airplane mode to receive verification code.</string>
+
+    <!--Navigation Drawer-->
+    <string name="drawer_profile">Profile</string>
+    <string name="drawer_friend">Friends</string>
+    <string name="drawer_setting">Setting</string>
+    <string name="drawer_connect">Connect</string>
+    <string name="drawer_about">About</string>
+    <string name="drawer_logout">Logout</string>
+
+    <!--Logout-->
+    <string name="logout_title">Logout</string>
+    <string name="logout_text">Backing up data to the server...</string>
+    <string name="logout_fail_title">Logout Failed</string>
+    <string name="logout_fail_text">Data is failed to sync to cloud!</string>
+    <string name="logout_fail_unknown_text">Logout failed, please retry again!</string>
+    <string name="session_expire_text">Account session expired, please log in again</string>
+    <string name="logout_kick">We found this account has been used by another device. The system has logout automatically on this device.</string>
+    <string name="logout_confirm_message">Are you sure you want to logout?</string>
+
+    <!--Time-->
+    <string name="time_hour">hour</string>
+    <string name="time_minute">minute</string>
+    <string name="time_second">second</string>
+    <string name="time_minute_middle">min</string>
+    <string name="time_second_middle">sec</string>
+    <string name="time_hour_short">H</string>
+    <string name="time_minute_short">M</string>
+    <string name="time_second_short">S</string>
+
+    <!--Path View-->
+    <string name="path_during_short_pattern"> {during_minute} min</string>
+    <string name="path_during_pattern"> {during_hour} H {during_minute} M</string>
+    <string name="no_map">Map not available</string>
+    <string name="umadeit_off">Umadeit off</string>
+    <string name="district">District</string>
+    <string name="path_mode_walk">Walk</string>
+    <string name="path_mode_move">Transport</string>
+    <string name="path_mode_still">Still</string>
+    <string name="path_location_quality_low">The quality of location data is low. Please check your settings.</string>
+    <string name="path_google_play_service_error">Google play service is disabled or need to be updated.</string>
+
+    <!--Dashboard Screen-->
+    <string name="dashboard_step_title">today steps</string>
+    <string name="curve_trend_title">curve trend</string>
+
+    <!--Friend Screen-->
+    <string name="friend_tab_management">Management</string>
+    <string name="friend_tab_invite">Invite</string>
+    <string name="friend_tab_request">Request</string>
+    <string name="friend_toolbar_title">Umadeit Friends</string>
+    <string name="friend_title_left">Your friends</string>
+    <string name="friend_title_right">Connection</string>
+    <string name="friend_cancel_invite">Do you want to cancel inviting %1$s?</string>
+    <string name="friend_invite_title_left">Invite your friend</string>
+    <string name="friend_invite_title_right">Invite</string>
+    <string name="friend_management_title_left">Tracking you friends</string>
+    <string name="friend_management_title_right">Unfriend</string>
+    <string name="friend_request_title_left">Friends inviting you</string>
+    <string name="friend_request_title_right">Reject/Approve</string>
+
+    <!--Map Screen-->
+    <string name="map_title">Daily Path</string>
+
+    <!--Sensor-->
+    <string name="sensor_hsp_update">New HTC service pack is released, Please upgrade your HC service pack.</string>
+
+    <!--About Screen-->
+    <!-- The title of about page which is used to view the licence/ copyright, etc. -->
+    <string name="about_title">About</string>
+    <!-- One item in about page which is used to view application version. -->
+    <string name="version">Version</string>
+    <!-- One item in about page which click to view copyright notice. -->
+    <string name="copyright_notice">Copyright Notice</string>
+    <string name="copyright_notice_detail">Copyright © 2015 HTC Communication Technology (Beijing) Co., Ltd. All Rights Reserved.</string>
+    <!-- One item in about page which click to view privacy policy. -->
+    <string name="privacy_policy">HTC\'s Privacy Policy</string>
+    <!-- Do not translate -->
+    <string name="privacy_policy_url">http://www.htc.com/us/terms/privacy/</string>
+    <!-- One item in about page which click to view T&C. -->
+    <string name="terms_of_condition">HTC\'s Terms &amp; Conditions</string>
+    <!-- One item in about page which click to view used open source libraries in this application. -->
+    <string name="open_source_license">Open Source License</string>
+
+    <!--LinkScreen-->
+    <string name="link_title">Manage Account</string>
+    <string name="link_failed">Failed to link, error code is %1s.</string>
+
+    <!-- the buttons in menu-->
+    <string name="main_menu_btn_chatting">Chatting With Friends</string>
+    <string name="main_menu_btn_calendar">View History</string>
+    <string name="main_menu_btn_invite">Invite Your Friends</string>
+
+    <!-- Chatting room list item -->
+    <string name="chatting_room_list_menu_btn_search">Search</string>
+    <string name="chatting_room_list_search_view_hint">Enter friend name</string>
+    <string name="chatting_room_list_menu_btn_add_friend">Add friend</string>
+    <string name="chatting_room_list_toolbar_title">Send Message</string>
+    <string name="chatting_room_list_item_recently_text">Recently</string>
+    <string name="chatting_room_list_item_friend_text">Friend</string>
+    <string name="chatting_room_toolbar_title">Chatting Room</string>
+    <string name="chatting_room_list_loading_failed">Loading chatting room list failed.</string>
+    <string name="chatting_room_list_loading_failed_retry_btn">RETRY</string>
+    <string name="chatting_notification_got_a_image">You got an image.</string>
+
+    <!--History Screen-->
+    <string name="history_title">Historical Report</string>
+    <string name="category_steps">Steps</string>
+    <string name="category_calories">Calories</string>
+    <string name="category_time">Time</string>
+    <string name="category_distance">Distance</string>
+    <string name="menu_title_search">search</string>
+    <string name="unit_steps">Steps</string>
+    <string name="unit_calories">Cal.</string>
+    <string name="unit_time">Min.</string>
+    <string name="unit_distance">Km.</string>
+
+    <!-- Share Image Screen-->
+    <string name="share_btn">Share</string>
+    <string name="share_image_title">Share image</string>
+    <string name="share_landmark_steps">%1$d steps</string>
+    <string name="share_landmark_took">took</string>
+    <string name="share_landmark_togetto">to get to</string>
+    <string name="share_tab_friends">Friends</string>
+    <string name="share_tab_other">Other apps</string>
+
+    <!--Goal Screen-->
+    <string name="goal_title">Goal Settings</string>
+
+    <!--Goal Setting Dialog-->
+    <string name="goal_setting_dialog_title">Set Your Daily Goal</string>
+    <string name="goal_setting_dialog_hint">Daily Goal</string>
+    <string name="number_not_correct">Number format is not correct</string>
+
+    <!--Share Screen-->
+    <string name="share_by_omlet_title">Share to your friends</string>
+    <string name="share_by_android_title">Share by android</string>
+    <string name="share_by_facebook_btn">Facebook</string>
+    <string name="share_by_android_btn">Others</string>
+    <string name="share_image_message">Share by Umadeit.\n
+        https://play.google.com/store/apps/details?id=com.aiqidi.nemo</string>
+    <string name="invite_message">I am using the Umadeit, join me soon!\n
+        https://play.google.com/store/apps/details?id=com.aiqidi.nemo</string>
+
+    <!--Leaderboard Screen-->
+    <string name="leaderboard_friend_list_loading_failed">Friend list loading failed.</string>
+
+    <!--No Data Layout-->
+    <string name="no_data">No Data</string>
+
+    <!--Notification Message-->
+    <string name="goal_reached_title">You\'ve reached the goal!</string>
+    <string name="goal_reached_message">You\'ve reached the goal for %1$s %2$s!</string>
+    <string name="gcm_invite_title">New Invitation!</string>
+    <string name="gcm_invite_message">%s is inviting you!</string>
+    <string name="gcm_accept_title">New Friend!</string>
+    <string name="gcm_accept_message">%s has agreed your invitation!</string>
+    <string name="yesterday_summary_title">Your activity report (%1$s)</string>
+    <string name="yesterday_summary_message">Steps: %1$d steps\nCalories: %2$d kcal\nDistance: %3$.1f km\nTime: %4$s</string>
+
+    <!-- Toolbar download btn-->
+    <string name="sent_image_menu_btn_download">Download image</string>
+    <string name="sent_image_detail_screen_download_complete">Download completed!</string>
+    <string name="sent_image_detail_screen_download_failed">Download failed!</string>
+
+    <!-- Object option dialog -->
+    <string-array name="option_text_object">
+        <item>Delete</item>
+        <item>Copy</item>
+    </string-array>
+
+    <string-array name="option_image_object">
+        <item>Delete</item>
+    </string-array>
+
+    <!-- Tutorial -->
+    <string name="indicator_menu">Menu</string>
+    <string name="indicator_chat">Chatting room</string>
+    <string name="indicator_history">Historical trend</string>
+    <string name="indicator_setting">Setting</string>
+    <string name="indicator_share">Share</string>
+    <string name="indicator_drag">Drag</string>
+
+    <!-- Share image -->
+    <string name="share_text_i_made_it">I Made It!</string>
+    <string name="share_join_link">Join us in www.umadeit.com</string>
+
+    <!--Share leaderboard-->
+    <string name="rank_text">No.%1$02d</string>
+
+    <!-- Achievement -->
+    <string-array name="achievement_item_name">
+        <item>the Central Park</item>
+        <item>Mt. Everest</item>
+        <item>the Great Wall</item>
+        <item>hamburgers</item>
+        <item>boxes of donut</item>
+        <item>boxes of pizza</item>
+    </string-array>
+    <string name="achievement_unit_step">times</string>
+    <string name="achievement_message1_step">steps =</string>
+    <string name="achievement_message2_step">conquered</string>
+    <string name="achievement_message_calorie">calories = burned</string>
+    <string name="achievement_day">for the last %1$d days</string>
+
+</resources>
